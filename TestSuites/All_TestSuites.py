@@ -22,7 +22,7 @@ sanityTestSuite = unittest.TestSuite([tc1,tc2,tc4,tc5]) #sanity test suite
 functionalTestSuite = unittest.TestSuite([tc3]) #functional test suite
 masterTestSuites = unittest.TestSuite([tc1,tc2,tc3,tc4,tc5]) #master test suites
 
-# unittest.TextTestRunner().run(sanityTestSuite) # only sigup and login
-unittest.TextTestRunner().run(functionalTestSuite) # only recording
+unittest.TextTestRunner().run(sanityTestSuite) # only sigup and login
+# # unittest.TextTestRunner().run(functionalTestSuite) # only recording
 # unittest.TextTestRunner().run(masterTestSuites) # all
 

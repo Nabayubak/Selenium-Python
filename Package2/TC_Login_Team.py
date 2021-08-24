@@ -4,6 +4,13 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+def master():
+    driver = webdriver.Chrome("C:\\Users\\nabay\\Downloads\\chromedriver_win32\\chromedriver.exe")
+
+    driver.get("https://staging-cassette.audiobee.ai/login")
+    driver.maximize_window()
+    return driver
+
 
 class LoginTest_T(unittest.TestCase):
 
@@ -11,10 +18,7 @@ class LoginTest_T(unittest.TestCase):
 #Blank field
     def test1(self):
 
-        driver = webdriver.Chrome("C:\\Users\\nabay\\Downloads\\chromedriver_win32\\chromedriver.exe")
-
-        driver.get("https://staging-cassette.audiobee.ai/")
-        driver.maximize_window()
+        driver = master()
 
         driver.find_element(By.XPATH, "//input[@placeholder='Enter your email']").send_keys("")
         driver.find_element(By.XPATH, "//input[@placeholder='Enter your password']").send_keys("")
@@ -36,10 +40,7 @@ class LoginTest_T(unittest.TestCase):
 
 #unregistered mail and invalid email
     def test2(self):
-        driver = webdriver.Chrome("C:\\Users\\nabay\\Downloads\\chromedriver_win32\\chromedriver.exe")
-
-        driver.get("https://staging-cassette.audiobee.ai/")
-        driver.maximize_window()
+        driver = master()
 
         driver.find_element(By.XPATH, "//input[@placeholder='Enter your email']").send_keys("Nabayubak@gmail.com")
         driver.find_element(By.XPATH, "//input[@placeholder='Enter your password']").send_keys("Test@123")
@@ -73,10 +74,8 @@ class LoginTest_T(unittest.TestCase):
 
 #Forgot password
     def test3(self):
-        driver = webdriver.Chrome("C:\\Users\\nabay\\Downloads\\chromedriver_win32\\chromedriver.exe")
 
-        driver.get("https://staging-cassette.audiobee.ai/")
-        driver.maximize_window()
+        driver = master()
 
         driver.find_element(By.XPATH, "//a[contains(text(),'Forgot Password?')]").click()
 
@@ -154,13 +153,8 @@ class LoginTest_T(unittest.TestCase):
 
 # onclick signup link
     def test4(self):
-        driver = webdriver.Chrome("C:\\Users\\nabay\\Downloads\\chromedriver_win32\\chromedriver.exe")
 
-        driver.get("https://staging-cassette.audiobee.ai/")
-
-        time.sleep(2)
-
-        driver.maximize_window()
+        driver = master()
 
         driver.find_element(By.XPATH,"//b[contains(text(),'Signup')]").click()
 
@@ -174,10 +168,8 @@ class LoginTest_T(unittest.TestCase):
 
 
 def test6(self):
-  driver = webdriver.Chrome("C:\\Users\\nabay\\Downloads\\chromedriver_win32\\chromedriver.exe")
 
-  driver.get("https://staging-cassette.audiobee.ai/")
-  driver.maximize_window()
+  driver = master()
 
   # Finding element from login page and data entering to field
 

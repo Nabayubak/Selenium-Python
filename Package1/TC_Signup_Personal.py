@@ -3,15 +3,20 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+def master():
+    driver = webdriver.Chrome("C:\\Users\\nabay\\Downloads\\chromedriver_win32\\chromedriver.exe")
+
+    driver.get("https://staging-cassette.audiobee.ai/login")
+    driver.maximize_window()
+
+    time.sleep(2)
+    return driver
+
+
 class SignupTest_P(unittest.TestCase):
 
     def test2(self):
-        driver = webdriver.Chrome("C:\\Users\\nabay\\Downloads\\chromedriver_win32\\chromedriver.exe")
-
-        driver.get("https://staging-cassette.audiobee.ai/")
-        driver.maximize_window()
-
-        time.sleep(2)
+        driver = master()
 
         driver.find_element_by_link_text("Signup").click()
         driver.implicitly_wait(4)
@@ -46,12 +51,8 @@ class SignupTest_P(unittest.TestCase):
         driver.close()
 
     def test3(self):
-        driver = webdriver.Chrome("C:\\Users\\nabay\\Downloads\\chromedriver_win32\\chromedriver.exe")
+        driver = master()
 
-        driver.get("https://staging-cassette.audiobee.ai/")
-        driver.maximize_window()
-
-        time.sleep(2)
         driver.find_element_by_link_text("Signup").click()
 
         driver.implicitly_wait(4)
@@ -75,10 +76,7 @@ class SignupTest_P(unittest.TestCase):
         driver.close()
 
     def test4(self):
-        driver = webdriver.Chrome("C:\\Users\\nabay\\Downloads\\chromedriver_win32\\chromedriver.exe")
-
-        driver.get("https://staging-cassette.audiobee.ai/")
-        driver.maximize_window()
+        driver = master()
 
         driver.find_element_by_link_text("Signup").click()
 
@@ -96,10 +94,7 @@ class SignupTest_P(unittest.TestCase):
         driver.close()
 
     def test5(self):
-        driver = webdriver.Chrome("C:\\Users\\nabay\\Downloads\\chromedriver_win32\\chromedriver.exe")
-
-        driver.get("https://staging-cassette.audiobee.ai/")
-        driver.maximize_window()
+        driver = master()
 
         driver.find_element_by_link_text("Signup").click()
 
